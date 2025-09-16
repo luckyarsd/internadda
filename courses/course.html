@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses — Internadda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-auth-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-firestore-compat.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.jpg" alt="InternAdda Logo" class="logo-img"> 
+          <span class="logo-text">InternAdda</span>
+        </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="course.html" class="nav-link">Courses</a>
+                <a href="../intern/internship.html" class="nav-link">Internships</a>
+                <a href="#" class="nav-link">Jobs</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="header-actions">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search for courses...">
+                </div>
+                
+                <div id="authButtons">
+                    <a href="#" class="btn btn-outline" id="loginBtnHeader">Log in</a>
+                    <a href="#" class="btn btn-primary" id="signupBtnHeader">Sign up</a>
+                </div>
+                
+                <div class="user-profile hidden" id="userProfile">
+                    <img src="https://placehold.co/40x40/5624d0/ffffff?text=U" alt="User Avatar" class="user-avatar-header" id="userAvatarHeader">
+                    <span id="userNameHeader"></span>
+                    <div class="dropdown-menu" id="userDropdown">
+                        <button id="profileBtnHeader">My Profile</button>
+                        <button id="logoutBtnHeader">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="searchResults" class="search-results-container container hidden"></div>
+    </header>
+
+    <section class="courses">
+            <div class="container">
+                <div class="courses-header">
+                    <h2 class="section-title">Popular Courses</h2>
+                    <a href="courses/course.html" class="btn btn-outline">View All Courses</a>
+                </div>
+                
+                <div class="courses-grid">
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=500&q=80" alt="Generative AI">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Generative AI & Prompt Engineering Masterclass</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-value">4.7</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹2,999</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1ff?auto=format&fit=crop&w=500&q=80" alt="Stock Market">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Stock Market & Trading for Beginners</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.5</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,499</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Python Programming">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Python Programming Crash Course</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.3</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹999</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=500&q=80" alt="Data Science">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Data Science & Machine Learning Bootcamp</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-value">4.6</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹2,499</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Cloud Computing">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Cloud Computing & DevOps Essentials</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.4</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,999</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="Cybersecurity">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Ethical Hacking & Cybersecurity Basics</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.3</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,299</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=500&q=80" alt="Web Development">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Full Stack Web Development with HTML, CSS & JS</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-value">4.5</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,799</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500&q=80" alt="Digital Marketing">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">The Complete Digital Marketing Course</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-value">4.6</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,199</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="E-Commerce">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">E-Commerce & Dropshipping Business Mastery</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.4</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹1,499</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-card">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="Communication Skills">
+    </div>
+    <div class="course-content">
+        <h3 class="course-title">Spoken English & Communication Skills</h3>
+        <p class="course-author">Created by AI</p>
+        <div class="course-rating">
+            <div class="rating-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <span class="rating-value">4.2</span>
+        </div>
+        <div class="course-price">
+            <span class="original-price">₹899</span>
+            <span class="badge free">FREE</span>
+        </div>
+    </div>
+</div>
+  
+                    
+              
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Start Your Career Journey Today</h2>
+                <p class="cta-description">Join thousands of students who have transformed their careers through Internadda's learn, intern, and earn model.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-light btn-lg">Get Started</button>
+                    <button class="btn btn-transparent btn-lg">Browse Courses</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">Internadda</div>
+                    <p class="footer-description">Transforming careers through learning, interning, and earning opportunities.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-links-title">Learn</h3>
+                    <ul class="footer-links">
+                        <li><a href="course.html">Browse Courses</a></li>
+                        <li><a href="#">Free Courses</a></li>
+                        <li><a href="#">For Businesses</a></li>
+                        <li><a href="#">Become an Instructor</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-links-title">Intern</h3>
+                    <ul class="footer-links">
+                        <li><a href="../intern/internship.html">Find Internships</a></li>
+                        <li><a href="#">For Companies</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Career Coaching</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-links-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Press Inquiries</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Internadda. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+
+            <div id="loginSection" class="auth-section">
+                <h2 class="auth-title">Welcome Back</h2>
+                <div class="loading" id="loginLoading">
+                    <div class="spinner"></div>
+                    <span>Signing in...</span>
+                </div>
+                <div id="loginError" class="error"></div>
+                
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                
+                <button class="btn btn-primary" id="emailLoginBtn">Sign In</button>
+                <div class="separator"><span>OR</span></div>
+                <button class="btn btn-google" id="googleLoginBtn"><i class="fab fa-google"></i> Continue with Google</button>
+                
+                <div class="toggle-auth">
+                    <span>Don't have an account?</span> <a href="#" id="showSignup">Sign up</a>
+                </div>
+            </div>
+            
+            <div id="signupSection" class="auth-section">
+                <h2 class="auth-title">Create Account</h2>
+                <div class="loading" id="signupLoading">
+                    <div class="spinner"></div>
+                    <span>Creating account...</span>
+                </div>
+                <div id="signupError" class="error"></div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password (6+ characters)" required>
+                </div>
+                
+                <button class="btn btn-primary" id="emailSignupBtn">Create Account</button>
+                <div class="separator"><span>OR</span></div>
+                <button class="btn btn-google" id="googleSignupBtn"><i class="fab fa-google"></i> Sign up with Google</button>
+                
+                <div class="toggle-auth">
+                    <span>Already have an account?</span> <a href="#" id="showLogin">Sign in</a>
+                </div>
+            </div>
+            
+            <div id="dashboardSection" class="auth-section">
+                <div class="dashboard-content">
+                    <div id="profileDisplaySection">
+                        <div class="user-info-profile">
+                            <div class="profile-avatar-display">
+                                <img id="userAvatarDashboard" class="user-avatar" src="" alt="User Avatar">
+                                <div class="verified-badge" id="verificationBadge"></div>
+                            </div>
+                            <div class="user-profile-details">
+                                <h2 id="userNameDashboard"></h2>
+                                <p id="userEmailDashboard"></p>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <h3 class="section-title-small">Profile Information</h3>
+                            <div class="profile-info-item">
+                                <strong>Gender:</strong> <span id="profileGenderDisplay">Not specified</span>
+                            </div>
+                            <div class="profile-info-item">
+                                <strong>Interested Domain:</strong> <span id="profileDomainDisplay">Not specified</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" id="editProfileBtn">Edit Profile</button>
+                    </div>
+
+                    <div id="profileEditSection" class="hidden">
+                        <div class="profile-avatar-display">
+                            <img id="userAvatarPreview" class="user-avatar" src="" alt="User Avatar Preview">
+                            <label for="profileImageInput" class="file-upload-label">
+                                <i class="fas fa-upload"></i> Upload Image
+                            </label>
+                            <input type="file" id="profileImageInput" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileName">Full Name</label>
+                            <input type="text" id="profileName" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileGender">Gender</label>
+                            <select id="profileGender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interestedDomain">Interested Domain</label>
+                            <select id="interestedDomain">
+                                <option value="">Select Domain</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science & AI">Data Science & AI</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="saveProfileBtn">Save Profile</button>
+                    </div>
+                    
+                    <div id="notesTabContent" class="tab-content hidden">
+                        <h3 class="section-title-small">📝 Your Notes</h3>
+                        <div class="form-group-note">
+                            <input type="text" id="dataInput" placeholder="Enter a new note...">
+                            <button class="btn btn-primary btn-note" id="saveDataBtn">💾 Save</button>
+                        </div>
+                        <div id="userDataList" class="user-data-list"></div>
+                    </div>
+
+                    <div id="settingsTabContent" class="tab-content hidden">
+                        <h3 class="section-title-small">Account Settings</h3>
+                        <p>Change your password, manage linked accounts, and more.</p>
+                        <button class="btn btn-secondary" id="logoutBtnModal">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>
