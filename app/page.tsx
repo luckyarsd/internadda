@@ -62,11 +62,10 @@ const ICON_MAP: Record<string, any> = {
 
 // Company partner logos (using lightweight CSS grayscale placeholders)
 const PARTNERS = [
+  { name: 'UpForge Global', label: 'UpForge Global' },
   { name: 'Apex Labs', label: 'Apex Labs' },
-  { name: 'QuantEdge Analytics', label: 'QuantEdge' },
-  { name: 'Krypton Studio', label: 'Krypton Studio' },
+  { name: 'Jobee', label: 'Jobee' },
   { name: 'ScaleX Digital', label: 'ScaleX' },
-  { name: 'Vanguard Operations', label: 'Vanguard' },
 ]
 
 export default function HomePage() {
