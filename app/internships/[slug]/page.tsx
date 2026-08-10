@@ -45,8 +45,8 @@ export default async function InternshipDetailPage({ params }: Props) {
     notFound()
   }
 
-  // JSON-LD JobPosting schema
-  const jsonLd = {
+  // JSON-LD JobPosting & BreadcrumbList schema
+  const jobLd = {
     '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: role.title,
@@ -82,11 +82,40 @@ export default async function InternshipDetailPage({ params }: Props) {
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://internadda.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Internships',
+        item: 'https://internadda.com/internships',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: role.title,
+        item: `https://internadda.com/internships/${role.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Header />
       <main className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-16">
