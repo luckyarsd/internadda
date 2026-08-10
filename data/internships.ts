@@ -24,213 +24,187 @@ export interface Internship {
 export const INTERNSHIPS: Internship[] = [
   {
     id: 'int-01',
-    slug: 'software-engineering-intern',
-    title: 'Software Engineering Intern (Frontend / Full Stack)',
-    company: 'Apex Labs',
-    category: 'Software Development',
-    categorySlug: 'software-development',
+    slug: 'data-analytics-intern',
+    title: 'Data Analytics Intern (Excel & SQL)',
+    company: 'QuantEdge Analytics',
+    companyLogo: '/logo.jpg',
+    category: 'Data Analytics',
+    categorySlug: 'data-analytics',
     location: 'Remote (India)',
     locationType: 'Remote',
-    duration: '3 Months',
-    stipend: '₹18,000 / month',
-    type: 'Full-time',
-    openings: 4,
+    duration: '2-3 Months',
+    stipend: '₹3,500 / month',
+    type: 'Part-time',
+    openings: 5,
     postedDate: '2026-08-01',
-    deadline: '2026-08-30',
-    description: 'Apex Labs is seeking driven Software Engineering Interns to help build next-generation web applications using Next.js, React, TypeScript, and modern CSS frameworks.',
+    deadline: '2026-08-31',
+    description: 'Extract insights from raw datasets using Excel formulas, basic SQL, and Power BI dashboards. No prior experience mandatory — we evaluate candidates via a simple, real task, not just a resume.',
     responsibilities: [
-      'Build responsive, accessible user interface components using React and TypeScript',
-      'Collaborate with product designers to implement clean UI components matching design tokens',
-      'Optimize web application page speed, core web vitals, and asset loading',
-      'Participate in daily standups, code reviews, and architectural discussions'
+      'Clean and format structured raw datasets using Excel formulas and functions',
+      'Assist in writing basic SQL queries to aggregate user activity data',
+      'Create basic charts and summary reports for weekly team reviews',
+      'Learn data visualization best practices with guidance from senior analysts'
     ],
     requirements: [
-      'Strong fundamentals in JavaScript (ES6+), HTML5, and CSS3',
-      'Familiarity with React, Next.js, and Git version control',
-      'Understanding of REST APIs and async data fetching',
-      'Currently pursuing or recent graduate in CS, IT, or related technical disciplines'
+      'Basic Excel comfort (SUM, VLOOKUP/XLOOKUP, Pivot Tables)',
+      'Willingness to learn Power BI and basic SQL fundamentals',
+      'Curiosity for numbers and pattern recognition',
+      'No prior professional analytics experience mandatory — training provided'
     ],
     perks: [
-      'Certificate of Completion & Letter of Recommendation',
-      'Mentorship from Senior Staff Engineers',
-      'Flexible working hours & 100% remote workspace',
-      'PPO (Pre-Placement Offer) potential based on performance'
+      'Verified Certificate of Completion & Letter of Recommendation',
+      '1-on-1 mentorship from Senior Data Analysts',
+      '100% remote work with flexible hours',
+      'Opportunity for stipend increase based on project output'
     ],
-    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Git']
+    skills: ['Excel Basics', 'Basic SQL', 'Power BI Fundamentals', 'Data Cleaning']
   },
   {
     id: 'int-02',
-    slug: 'data-analyst-intern',
-    title: 'Data Analyst & Insights Intern',
-    company: 'QuantEdge Analytics',
+    slug: 'power-bi-dashboard-intern',
+    title: 'Power BI & Dashboard Development Intern',
+    company: 'Apex Insights',
+    companyLogo: '/logo.jpg',
     category: 'Data Analytics',
     categorySlug: 'data-analytics',
-    location: 'Bangalore / Hybrid',
-    locationType: 'Hybrid',
-    duration: '6 Months',
-    stipend: '₹22,000 / month',
-    type: 'Full-time',
-    openings: 3,
-    postedDate: '2026-08-03',
-    deadline: '2026-08-28',
-    description: 'Work with cross-functional product and growth teams at QuantEdge to extract, clean, and visualize user analytics data to drive business decisions.',
+    location: 'Remote (India)',
+    locationType: 'Remote',
+    duration: '3 Months',
+    stipend: '₹4,000 / month',
+    type: 'Part-time',
+    openings: 4,
+    postedDate: '2026-08-02',
+    deadline: '2026-09-02',
+    description: 'Transform raw spreadsheet data into clear interactive dashboards. No prior BI experience required — hands-on training and starter templates provided. Evaluated via a short, practical task.',
     responsibilities: [
-      'Extract data using SQL queries and clean structured/unstructured datasets',
-      'Build automated analytics dashboards using Python (Pandas/Seaborn) or Power BI',
-      'Perform cohort analysis and funnel conversion metrics for digital products',
-      'Present findings and actionable insights to senior leadership'
+      'Import spreadsheet data into Power BI and set up data models',
+      'Design clean, interactive visuals (bar charts, KPIs, trend lines)',
+      'Document dashboard metrics and update weekly data sources',
+      'Participate in dashboard review calls with client leads'
     ],
     requirements: [
-      'Proficiency in SQL and Python data analysis libraries (Pandas, NumPy)',
-      'Basic understanding of statistics, probability, and hypothesis testing',
-      'Familiarity with BI tools (PowerBI, Tableau, or Metabase)',
-      'Analytical mindset with attention to detail'
+      'Basic familiarity with MS Excel spreadsheets',
+      'No prior Power BI experience required — training provided',
+      'Keen eye for clean layout and clear data presentation',
+      'Enthusiasm to build real portfolio dashboards'
     ],
     perks: [
-      'Industry-recognized Data Analytics Certification',
-      'Direct exposure to production datasets',
-      'Hybrid office perks in HSR Layout, Bangalore'
+      'Official Power BI Portfolio Certificate',
+      'Direct guidance from Lead BI Architect',
+      'Flexible schedule (10-15 hrs/week)',
+      'Direct intro to hiring partners upon successful completion'
     ],
-    skills: ['SQL', 'Python', 'Pandas', 'Power BI', 'Data Visualization']
+    skills: ['Power BI', 'Excel Spreadsheets', 'Dashboard Design', 'Data Reporting']
   },
   {
     id: 'int-03',
-    slug: 'ui-ux-design-intern',
-    title: 'UI/UX & Product Design Intern',
-    company: 'Krypton Design Studio',
+    slug: 'ms-office-business-operations-intern',
+    title: 'MS Office & Business Operations Intern',
+    company: 'Vanguard Operations',
+    companyLogo: '/logo.jpg',
+    category: 'Business Operations',
+    categorySlug: 'operations',
+    location: 'Remote (India)',
+    locationType: 'Remote',
+    duration: '2 Months',
+    stipend: '₹2,500 / month',
+    type: 'Part-time',
+    openings: 6,
+    postedDate: '2026-08-03',
+    deadline: '2026-08-30',
+    description: 'Support operational workflows by organizing documents in MS Word, managing records in Excel, and preparing slide decks in PowerPoint. No prior experience mandatory — evaluated via a real task.',
+    responsibilities: [
+      'Organize and update internal spreadsheets with accurate business records',
+      'Format business proposals and reports using MS Word templates',
+      'Draft clean PowerPoint presentation slides for team updates',
+      'Help coordinate communication across project teams'
+    ],
+    requirements: [
+      'Comfortable with MS Office / Google Workspace basics (Excel, Word, PowerPoint)',
+      'Good written communication in English',
+      'Strong organizational skills and attention to detail',
+      'No prior office experience mandatory'
+    ],
+    perks: [
+      'Certificate of Internship Completion',
+      'Flexible remote schedule (10 hrs/week)',
+      'Letter of Recommendation for top performers',
+      '100% free application and direct onboarding'
+    ],
+    skills: ['MS Excel', 'MS PowerPoint', 'MS Word', 'Data Entry', 'Communication']
+  },
+  {
+    id: 'int-04',
+    slug: 'creative-ad-design-intern',
+    title: 'Creative & Ad Design Intern (Canva / Photoshop)',
+    company: 'Krypton Studio',
+    companyLogo: '/logo.jpg',
     category: 'UI/UX Design',
     categorySlug: 'design',
     location: 'Remote (India)',
     locationType: 'Remote',
     duration: '3 Months',
-    stipend: '₹15,000 / month',
+    stipend: '₹3,000 / month',
     type: 'Part-time',
-    openings: 2,
-    postedDate: '2026-08-05',
+    openings: 3,
+    postedDate: '2026-08-04',
     deadline: '2026-09-05',
-    description: 'Join Krypton Design Studio to design sleek, modern visual interfaces, wireframes, and design systems for client web & mobile products.',
+    description: 'Design catchy social media ad creatives, banners, and marketing visuals. Minimal skill needed — Canva familiarity is enough! No prior experience mandatory, evaluated via a short design task.',
     responsibilities: [
-      'Create high-fidelity wireframes, interactive prototypes, and visual designs in Figma',
-      'Conduct user research and usability testing sessions with user cohorts',
-      'Maintain component libraries and design tokens for engineering handoff',
-      'Iterate designs based on feedback from product managers and engineers'
+      'Create social media graphic posts and ad banners using Canva or Photoshop',
+      'Adapt visual templates across different dimensions (Instagram, LinkedIn, Web)',
+      'Collaborate with marketing leads to brainstorm visual angles',
+      'Maintain brand visual consistency across graphics'
     ],
     requirements: [
-      'Proficiency with Figma, Auto Layout, and Component Variants',
-      'Portfolio showcasing 2-3 UI/UX case studies or web designs',
-      'Good sense of visual hierarchy, typography, colors, and micro-interactions',
-      'Strong communication skills for presenting design rationale'
+      'Creative eye and visual design interest',
+      'Basic familiarity with Canva (or Photoshop/Figma)',
+      'Willingness to learn ad creative design concepts',
+      'No professional design background required — portfolio task provided'
     ],
     perks: [
-      'Design portfolio critique from Principal UX Designers',
-      'Flexible working schedule',
-      'Work on live production apps'
+      'Design Portfolio Certification',
+      'Feedback from Senior Creative Directors',
+      '100% remote workspace with flexible project deadlines',
+      'Real ad campaign performance metrics to put on resume'
     ],
-    skills: ['Figma', 'User Research', 'Wireframing', 'Prototyping', 'Design Systems']
-  },
-  {
-    id: 'int-04',
-    slug: 'growth-marketing-intern',
-    title: 'Growth & Performance Marketing Intern',
-    company: 'ScaleX Media',
-    category: 'Digital Marketing',
-    categorySlug: 'marketing',
-    location: 'Delhi NCR / On-site',
-    locationType: 'On-site',
-    duration: '3 Months',
-    stipend: '₹16,000 / month',
-    type: 'Full-time',
-    openings: 5,
-    postedDate: '2026-08-02',
-    deadline: '2026-08-31',
-    description: 'ScaleX Media is looking for an energetic Growth Marketing Intern to plan and execute SEO campaigns, organic social content, and user acquisition funnels.',
-    responsibilities: [
-      'Perform SEO keyword research and optimize website landing page metadata',
-      'Draft copy for email newsletters, blog articles, and social posts',
-      'Track campaign performance using Google Analytics and Search Console',
-      'Assist in executing social media strategy across LinkedIn, Instagram, and X'
-    ],
-    requirements: [
-      'Basic knowledge of Digital Marketing fundamentals and SEO principles',
-      'Strong written English communication skills',
-      'Familiarity with Google Analytics, Canva, or Ahrefs/Semrush is a plus',
-      'Degree in Marketing, Communications, Business, or related fields'
-    ],
-    perks: [
-      'Hands-on experience with ad budgets and growth tools',
-      'Stipend + performance bonuses',
-      'Certificate and LinkedIn recommendation'
-    ],
-    skills: ['SEO', 'Content Strategy', 'Google Analytics', 'Social Media', 'Copywriting']
+    skills: ['Canva', 'Basic Photoshop', 'Ad Graphic Design', 'Visual Layout', 'Social Media Creatives']
   },
   {
     id: 'int-05',
-    slug: 'product-management-intern',
-    title: 'Associate Product Manager Intern',
-    company: 'Vanguard Systems',
-    category: 'Product Management',
-    categorySlug: 'product-management',
+    slug: 'social-media-marketing-intern',
+    title: 'Social Media Marketing Intern',
+    company: 'ScaleX Digital',
+    companyLogo: '/logo.jpg',
+    category: 'Digital Marketing',
+    categorySlug: 'marketing',
     location: 'Remote (India)',
     locationType: 'Remote',
-    duration: '4 Months',
-    stipend: '₹20,000 / month',
-    type: 'Full-time',
-    openings: 2,
-    postedDate: '2026-08-04',
-    deadline: '2026-09-01',
-    description: 'Work alongside senior product managers to define product requirements, translate customer feedback into user stories, and track feature execution.',
-    responsibilities: [
-      'Write detailed Product Requirement Documents (PRDs) and user stories in Notion/Jira',
-      'Gather and synthesize qualitative user feedback and quantitative product analytics',
-      'Coordinate between engineering, design, and business teams during sprint releases',
-      'Analyze competitor products and industry benchmarks'
-    ],
-    requirements: [
-      'Strong problem-solving ability and structured analytical thinking',
-      'Excellent written and verbal communication skills',
-      'Prior exposure to product management concepts or software development',
-      'Self-driven attitude with ability to manage timelines'
-    ],
-    perks: [
-      '1-on-1 mentorship from VP of Product',
-      'Certificate of Excellence',
-      'High conversion rate to full-time APM role'
-    ],
-    skills: ['PRD Writing', 'User Stories', 'Agile/Scrum', 'Product Analytics', 'Market Research']
-  },
-  {
-    id: 'int-06',
-    slug: 'hr-talent-acquisition-intern',
-    title: 'HR & People Operations Intern',
-    company: 'Nexus Global',
-    category: 'Human Resources',
-    categorySlug: 'human-resources',
-    location: 'Mumbai / Hybrid',
-    locationType: 'Hybrid',
     duration: '3 Months',
-    stipend: '₹14,000 / month',
-    type: 'Full-time',
-    openings: 3,
-    postedDate: '2026-08-06',
-    deadline: '2026-09-10',
-    description: 'Assist the People Operations team in candidate sourcing, interview coordination, onboarding experiences, and employee engagement initiatives.',
+    stipend: '₹5,000 / month',
+    type: 'Part-time',
+    openings: 4,
+    postedDate: '2026-08-05',
+    deadline: '2026-09-01',
+    description: 'Plan content calendars, draft post captions, schedule social posts, and track basic engagement analytics. No prior experience mandatory — evaluated via a real task, not just a resume.',
     responsibilities: [
-      'Screen candidate resumes and conduct preliminary screening calls',
-      'Schedule interviews with technical leads and hiring managers',
-      'Help organize virtual onboarding sessions and company cultural events',
-      'Maintain candidate databases and Applicant Tracking System (ATS) entries'
+      'Draft weekly social media post captions for LinkedIn, Instagram, and Twitter',
+      'Schedule content posts using social management tools',
+      'Track post reach, impressions, and engagement metrics',
+      'Engage with audience comments and direct messages'
     ],
     requirements: [
-      'Strong interpersonal and relationship-building skills',
-      'Organized mindset with ability to handle multiple schedules',
-      'Pursuing MBA/PGDM in HR or Bachelor degree in Psychology/Management',
-      'Proficiency in MS Office / Google Workspace tools'
+      'Active social media user with good content sense',
+      'Strong written English and catchy copywriting skills',
+      'Basic curiosity about digital marketing funnels',
+      'No prior agency experience mandatory — short assignment provided'
     ],
     perks: [
-      'Exposure to corporate HR operations',
-      'Official Certificate of Internship',
-      'Flexible hybrid schedule'
+      'Certificate of Completion & LinkedIn Recommendation',
+      'Direct mentorship from Growth Lead',
+      'Stipend + performance bonuses for top campaigns',
+      'Flexible remote schedule'
     ],
-    skills: ['Talent Sourcing', 'Interview Scheduling', 'ATS Management', 'Employee Engagement']
+    skills: ['Social Media Copywriting', 'Instagram Marketing', 'LinkedIn Content', 'Basic Analytics', 'Canva']
   }
 ]
