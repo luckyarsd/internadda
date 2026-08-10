@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, ArrowRight, Sparkles, Briefcase, HeartHandshake } from 'lucide-react'
 
@@ -9,6 +10,7 @@ const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'Internships', href: '/internships' },
   { name: 'Volunteer Work', href: '/volunteer' },
+  { name: 'Careers', href: '/career' },
   { name: 'About Us', href: '/about' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
@@ -42,9 +44,15 @@ export function Header() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md group-hover:scale-105 transition-transform">
-              IA
-            </div>
+            <Image
+              src="/logo.jpg"
+              alt="InternAdda Logo"
+              width={36}
+              height={36}
+              priority
+              unoptimized
+              className="w-9 h-9 rounded-xl object-cover shadow-md border border-slate-700 group-hover:scale-105 transition-transform"
+            />
             <div className="flex flex-col">
               <span className="text-[19px] font-extrabold tracking-tight text-white leading-none">
                 Intern<span className="text-blue-400">Adda</span>
