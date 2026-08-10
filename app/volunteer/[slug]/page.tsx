@@ -46,7 +46,7 @@ export default async function VolunteerDetailPage({ params }: Props) {
   }
 
   // JSON-LD schema
-  const jsonLd = {
+  const volunteerLd = {
     '@context': 'https://schema.org',
     '@type': 'VolunteerAction',
     name: role.title,
@@ -61,11 +61,40 @@ export default async function VolunteerDetailPage({ params }: Props) {
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://internadda.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Volunteer Roles',
+        item: 'https://internadda.com/volunteer',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: role.title,
+        item: `https://internadda.com/volunteer/${role.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(volunteerLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Header />
       <main className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-16">
