@@ -105,6 +105,11 @@ export default function InternshipsPage() {
               ))}
             </div>
 
+            {/* No fee guarantee notice */}
+            <div className="mt-12 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-center text-xs text-emerald-900 font-medium">
+              <strong>Selection Policy:</strong> InternAdda never asks candidates for money at any stage — application, skill test, or interview. All internships are 100% free to apply.
+            </div>
+
           </div>
         </section>
 
