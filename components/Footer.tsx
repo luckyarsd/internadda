@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin, Instagram, Youtube, Mail, ShieldCheck, HeartHandshake, Briefcase, FileText } from 'lucide-react'
 
 const FOOTER_LINKS = {
@@ -19,9 +20,8 @@ const FOOTER_LINKS = {
   Platform: [
     { label: 'About Us', href: '/about' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Community Hub', href: '/community' },
-    { label: 'Academy Courses', href: '/courses' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Full-Time Careers', href: '/career' },
+    { label: 'Contact Support', href: '/contact' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -72,9 +72,14 @@ export function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-extrabold text-sm">
-                IA
-              </div>
+              <Image
+                src="/logo.jpg"
+                alt="InternAdda Logo"
+                width={32}
+                height={32}
+                unoptimized
+                className="w-8 h-8 rounded-lg object-cover border border-slate-700"
+              />
               <span className="font-extrabold text-xl text-white tracking-tight">
                 Intern<span className="text-blue-400">Adda</span>
               </span>
