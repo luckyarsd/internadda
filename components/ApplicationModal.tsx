@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from 'react'
-import { X, CheckCircle2, AlertCircle, Loader2, Send } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import { X, CheckCircle2, AlertCircle, Loader2, Send, ShieldCheck } from 'lucide-react'
 
 interface ApplicationModalProps {
   isOpen: boolean
@@ -28,6 +29,7 @@ export function ApplicationModal({
     graduationYear: '2026',
     portfolioUrl: '',
     coverNote: '',
+    botField: '', // Honeypot
   })
 
   const [loading, setLoading] = useState(false)
@@ -38,31 +40,66 @@ export function ApplicationModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Honeypot spam prevention check
+    if (formData.botField) {
+      setSubmitted(true)
+      return
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email.trim())) {
+      setError('Please provide a valid email address.')
+      return
+    }
+
+    // Rate-limiting check (30-second cooldown)
+    const lastSubmit = localStorage.getItem('ia_last_apply_submit')
+    const now = Date.now()
+    if (lastSubmit && now - parseInt(lastSubmit, 10) < 30000) {
+      const waitSec = Math.ceil((30000 - (now - parseInt(lastSubmit, 10))) / 1000)
+      setError(`Please wait ${waitSec} seconds before submitting another application.`)
+      return
+    }
+
     setLoading(true)
     setError(null)
 
     try {
-      const res = await fetch('/api/apply', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          roleId,
-          roleTitle,
-          organization,
-          roleType,
-        }),
-      })
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
 
-      const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit application.')
+      if (serviceId !== 'YOUR_SERVICE_ID' && templateId !== 'YOUR_TEMPLATE_ID' && publicKey !== 'YOUR_PUBLIC_KEY') {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: formData.fullName,
+            from_email: formData.email,
+            phone: formData.phone,
+            college: formData.college,
+            graduation_year: formData.graduationYear,
+            portfolio_url: formData.portfolioUrl || 'N/A',
+            role_title: roleTitle,
+            organization: organization,
+            role_type: roleType,
+            message: formData.coverNote || 'N/A',
+          },
+          publicKey
+        )
+      } else {
+        // Log fallback when env placeholders are in place
+        console.log('[EmailJS Demo Mode]: Application data:', { roleTitle, organization, ...formData })
+        await new Promise((resolve) => setTimeout(resolve, 600))
       }
 
+      localStorage.setItem('ia_last_apply_submit', Date.now().toString())
       setSubmitted(true)
     } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.')
+      console.error('EmailJS Error:', err)
+      setError(err?.text || err?.message || 'Failed to submit application. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -223,6 +260,17 @@ export function ApplicationModal({
                 />
               </div>
 
+              {/* Hidden honeypot field */}
+              <input
+                type="text"
+                name="botField"
+                value={formData.botField}
+                onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
+                className="hidden opacity-0 w-0 h-0 pointer-events-none"
+                tabIndex={-1}
+                aria-hidden="true"
+              />
+
               <div className="pt-2 flex items-center justify-end gap-3">
                 <button
                   type="button"
@@ -248,9 +296,10 @@ export function ApplicationModal({
                 </button>
               </div>
 
-              <p className="text-[11px] text-slate-400 text-center pt-1">
-                Applying is 100% free. Completing an application does not guarantee selection.
-              </p>
+              <div className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 rounded-lg p-2 text-center mt-2">
+                <ShieldCheck size={14} className="flex-shrink-0" />
+                <span>InternAdda never asks candidates for money — 100% free application.</span>
+              </div>
             </form>
           )}
         </div>
